@@ -1,7 +1,7 @@
-.gameboard {
-width: 550px;
-height: 540px;
-background-image: url('images/bg.png');
+.table {
+display:table;
+width: 50%;
+    border:1px solid #000;
 }
 
 p {
@@ -11,18 +11,22 @@ text-align: center;
 
 }
 
+.row {
+    display:table-row;
+    height:100%;
+}
+
 .messages {
 border: double;	
-
+margin-left: 50px;
 padding: 0 15px;
 }
 
 
 #console {
-
 position: absolute;
-width: 100px;
-left: 600px;
+width: 200px;
+left: 700px;
 top: 100px;
 z-index: 1001;	
 }
@@ -34,92 +38,21 @@ background-color: yellow;
 
 
 .square {
-width: 160px;
-height: 160px;
-display: inline-block;
+
+    display:table-cell;
+    width:33%;
+    height:100px;
+    border:1px solid #CCC;
 }
-
-
-#b1, #c1 {
-margin: 0 0 0 30px;
-}
-
-
+/*
 
 .x {
 background-image: url('images/x.png');
-
 }
 
 .o {
 background-image: url('images/o.png');
-
 }
-#b2, #c2, #b3, #c3 {
-margin-left: 25px;
-
-}
-
-
-#a2, #b2, #c2 {
-margin-top: 20px;
-
-}
-
-#a3, #b3, #c3 {
-margin-top: 25px;
-
-}
-
-
-/*
-
-
-#b1 {
-
-background-color: purple;
-}
-
-#c1 {
-
-background-color: orange;
-}
-
-
-#a1 {
-background-color: red;
-
-}
-
-#a2 {
-background-color: green;
-}
-
-#b2 {	
-background-color: orange;
-}
-
-#c2 {
-background-color: purple;
-}
-
-#a3 {
-background-color: red;
-
-}
-
-#b3 {
-background-color: purple;
-
-}
-
-#c3{
-background-color: orange;
-
-}
-
-
 */
-
 
 

@@ -1,89 +1,77 @@
 
 $(function(){
 
-	alert("Player 1 is X, and Player 2 is O.");
+/*	alert("Player 1 is X, and Player 2 is O.");*/
 
-	var turn = 0;
+var turn = 0;
 
-	var gameOver = false;
- 
-	$('.square').click(function(){
+var answer =  [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [6,4,2]];
+
+	$('.square').on("click", function(){		
 
 		if ($( this ).hasClass( "empty" )){
 
 			if (turn % 2 == 0) {
-			$(this).removeClass( 'empty' ).addClass('x');
-			winCheck();
-			turn += 1; 
-			console.log(turn);
-			$('.messages').html("<p>Player 2's turn</p>");
+				turn += 1;
+				console.log('turn'+turn);
+				$( this ).removeClass("empty");
+				$(this).text("X");
+
+				var userMoves = [];
+			    for (var i = 0; i <= answer.length; i += 1) {
+
+			        if ($(".square").eq(answer[i]).text() === "X") {
+
+			          userMoves.push(answer[i]);
+			          alert(userMoves)
+			          console.log(userMoves.length)
+			        }
+			    }
+
+			    if (userMoves.length === 3) {
+			        alert("you won");
+			      } else {
+			        userMoves = [];
+			     	}
+				$('.messages').html("<p>Player 2's turn</p>");
 
 			}
 
-			else  {
-			$(this).removeClass( 'empty' ).addClass('o');
-			winCheck();
-			turn += 1; 
-			console.log(turn);
-			$('.messages').html("<p>Player 1's turn</p>")
-			};
-	
-		}
+			else {
+				turn += 1;
+				console.log('turn'+turn);
+				$( this ).removeClass("empty");
+				$(this).text("O");	
+				var userMoves = [];
+     			for (var i = 0; i <= answer.length; i += 1) {
 
-		else if (!$( this ).hasClass( "empty" )){
+        		if ($(".square").eq(answer[i]).text() === "O") {
+			          userMoves.push(answer[i]);
+			          alert(userMoves)
+			          console.log(userMoves.length)
+			        }
+			      }
+
+			      if (userMoves.length === 3) {
+			        alert("you won");
+			      } else {
+			        userMoves = [];
+			      }		
+				$('.messages').html("<p>Player 1's turn</p>");
+			};
+			
+	} 
+
+		else {
 
 			alert("Already selected; try again");
 
 		}
 
 
-});
+	});
 
 });
 
-var wins = [['#a1', '#b1', '#c1'], ['#a2','#b2','#c2'], ['#a3','#b3','#c3'], ['#a1','#a2','#a3'], ['#b1','#b2','#b3'], ['#c1','#c2','#c3'], ['#a1','#b2','#c3'], ['#a3','#b2','#c1']];
 
 
-function winCheck(wins) {
-
-	for (var k = 1; k <=7 ; k++){
-         
-		if ($( wins[k] ).hasClass( "x" )){
-			console.log("x wins");
-		}
-
-		else if ($( wins[k] ).hasClass( "o" )){
-			console.log("o wins");
-		}
-		} 
-	  
-}
-
-
-
-
-/* WINNING COMBOS
-    for (k in this.wins){
-        var pattern = this.wins[k];
-
-        var p = this.board[pattern[0]] + this.board[pattern[1]] + this.board[pattern[2]];
-            if (p == "XXX") {
-              return "X";  // X Won!
-            } else if (p == "OOO") {
-              return "O";  // O Won!
-            }
-          }
-
-          // Check if all spaces in the board are filled, then its a Cat's game
-          var cnt = 0;
-          for (s in this.board) {
-            if (this.board[s]) { cnt+=1; }
-          }
-          if (cnt == 9) {
-            return "Cat";  // Cat's game!
-          }
-      }
-    };
-
-
-*/
