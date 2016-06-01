@@ -1,7 +1,13 @@
+.wrapper {
+display: inline-block;
+
+}
+
 .table {
 display:table;
 width: 50%;
     border:1px solid #000;
+
 }
 
 p {
@@ -18,27 +24,36 @@ text-align: center;
 
 .messages {
 border: double;	
-margin-left: 50px;
-padding: 0 15px;
+width: 50%;
 }
 
 
 #console {
-position: absolute;
-width: 200px;
-left: 700px;
-top: 100px;
+position: relative;
+
+top: 10px;
 z-index: 1001;	
 }
 
 #reset {
-display: none;
-background-color: yellow;
+background-color: #333333;
+text-align: center;
+color: white;
+	font-family: Arial, sans-serif;
+padding: 5px;
+border-radius: 10px;
+margin: 5px 0;
+width: 49%;
+cursor: pointer;
 }
 
 
 .square {
-
+	cursor: pointer;
+	font-family: Arial, sans-serif;
+	text-align: center;
+	font-size: 36px;
+	vertical-align: middle;
     display:table-cell;
     width:33%;
     height:100px;
